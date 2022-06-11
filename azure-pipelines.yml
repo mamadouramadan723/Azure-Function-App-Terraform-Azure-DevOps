@@ -14,29 +14,29 @@ steps:
     provider: 'azurerm'
     command: 'init'
     workingDirectory: $(System.DefaultWorkingDirectory)
-    backendServiceArm: 'ServiceConnectionName'
-    backendAzureRmResourceGroupName: 'common-services-miel'
-    backendAzureRmStorageAccountName: 'mielstorage001'
-    backendAzureRmContainerName: 'configman'
-    backendAzureRmKey: 'tf/terraform.tfstate'
+    backendServiceArm: 'rmdLab AFA Service Connection'
+    backendAzureRmResourceGroupName: 'rmdLabRG'
+    backendAzureRmStorageAccountName: 'rmdlabstorageaccount'
+    backendAzureRmContainerName: 'rmdlabstoragecontainer'
+    backendAzureRmKey: 'tf_afa/terraform.tfstate'
 - task: TerraformTaskV1@0
   displayName: Terra Destroy
   inputs:
     provider: 'azurerm'
     command: 'destroy'
     workingDirectory: $(System.DefaultWorkingDirectory)
-    environmentServiceNameAzureRM: 'ServiceConnectionName'
+    environmentServiceNameAzureRM: 'rmdLab AFA Service Connection'
 - task: TerraformTaskV1@0
   displayName: Terra Plan
   inputs:
     provider: 'azurerm'
     command: 'plan'
     workingDirectory: $(System.DefaultWorkingDirectory)
-    environmentServiceNameAzureRM: 'ServiceConnectionName'
+    environmentServiceNameAzureRM: 'rmdLab AFA Service Connection'
 - task: TerraformTaskV1@0
   displayName: Terra Apply
   inputs:
     provider: 'azurerm'
     command: 'apply'
     workingDirectory: $(System.DefaultWorkingDirectory)
-    environmentServiceNameAzureRM: 'ServiceConnectionName'
+    environmentServiceNameAzureRM: 'rmdLab AFA Service Connection'
