@@ -3,7 +3,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "example" {
-  name     = "myrmdLab-RG"
+  name     = "myrmdLabRG"
   location = "eastus2"
 }
 
