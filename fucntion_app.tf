@@ -3,12 +3,12 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "example" {
-  name     = "example-resources"
+  name     = "myrmdLab-RG"
   location = "eastus2"
 }
 
 resource "azurerm_storage_account" "example" {
-  name                     = "windowsfunctionappsa"
+  name                     = "myrmdlab-storage-account"
   resource_group_name      = azurerm_resource_group.example.name
   location                 = azurerm_resource_group.example.location
   account_tier             = "Standard"
@@ -16,7 +16,7 @@ resource "azurerm_storage_account" "example" {
 }
 
 resource "azurerm_service_plan" "example" {
-  name                = "example-app-service-plan"
+  name                = "myrmdlab-app-service-plan"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
   os_type             = "Windows"
@@ -24,7 +24,7 @@ resource "azurerm_service_plan" "example" {
 }
 
 resource "azurerm_windows_function_app" "example" {
-  name                = "example-windows-function-app"
+  name                = "myrmdlab-windows-function-app"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
 
